@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+<<<<<<< HEAD
     android:gravity="center"
     android:background="@color/primary"
     >
@@ -79,4 +80,38 @@
             android:text="" />
 
     </LinearLayout>
+=======
+    tools:context="com.aplikasi.aternuscommerce.Login">
+
+    <EditText
+        android:id="@+id/emailOrUsernameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Alamat Email atau Nama Pengguna"/>
+
+    <EditText
+        android:id="@+id/loginPasswordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Kata Sandi"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:id="@+id/loginButton"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:id="@+id/registerButton"/>
+
+    <TextView
+        android:id="@+id/debug"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+>>>>>>> 01f82ed45823827128cb6468497ede56e84406e9
 </LinearLayout>

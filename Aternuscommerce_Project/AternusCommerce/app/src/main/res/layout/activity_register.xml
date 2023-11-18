@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+=======
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> 01f82ed45823827128cb6468497ede56e84406e9
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+<<<<<<< HEAD
     tools:context="com.aplikasi.aternuscommerce.Register"
     android:background="@color/primary"
     android:gravity="center">
@@ -30,43 +35,74 @@
             android:layout_marginBottom="16dp"
             android:src="@drawable/logo2" />
         <!-- Fullname EditText -->
+=======
+    tools:context="com.aplikasi.aternuscommerce.Register">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="252dp"
+        android:orientation="vertical">
+
+>>>>>>> 01f82ed45823827128cb6468497ede56e84406e9
         <EditText
             android:id="@+id/fullnameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:backgroundTint="@color/secondary"
             android:hint="Fullname" />
 
         <!-- Username EditText -->
+=======
+            android:hint="Fullname" />
+
+>>>>>>> 01f82ed45823827128cb6468497ede56e84406e9
         <EditText
             android:id="@+id/usernameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:backgroundTint="@color/secondary"
             android:hint="Username" />
 
         <!-- Email EditText -->
+=======
+            android:hint="Username" />
+
+>>>>>>> 01f82ed45823827128cb6468497ede56e84406e9
         <EditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:backgroundTint="@color/secondary"
             android:hint="Alamat Email" />
 
         <!-- Password EditText -->
+=======
+            android:hint="Alamat Email" />
+
+>>>>>>> 01f82ed45823827128cb6468497ede56e84406e9
         <EditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:backgroundTint="@color/secondary"
             android:hint="Kata Sandi"
             android:inputType="textPassword" />
 
         <!-- Confirm Password EditText -->
+=======
+            android:hint="Kata Sandi"
+            android:inputType="textPassword" />
+
+>>>>>>> 01f82ed45823827128cb6468497ede56e84406e9
         <EditText
             android:id="@+id/confirmPasswordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:backgroundTint="@color/secondary"
             android:hint="Konfirmasi Kata Sandi"
             android:inputType="textPassword" />
@@ -93,3 +129,25 @@ android:text=""
 android:paddingTop="16dp" />
 
     </LinearLayout>
+=======
+            android:hint="Konfirmasi Kata Sandi"
+            android:inputType="textPassword" />
+
+
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="Daftar" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/debug"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+</LinearLayout>
+>>>>>>> 01f82ed45823827128cb6468497ede56e84406e9

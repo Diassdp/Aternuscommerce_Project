@@ -25,8 +25,13 @@ import java.util.Map;
 
 public class Login extends AppCompatActivity {
     private EditText emailOrUsernameEditText, loginPasswordEditText;
+<<<<<<< HEAD
     private TextView debug,registerButton;
     private Button loginButton;
+=======
+    private TextView debug;
+    private Button loginButton, registerButton;
+>>>>>>> 01f82ed45823827128cb6468497ede56e84406e9
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

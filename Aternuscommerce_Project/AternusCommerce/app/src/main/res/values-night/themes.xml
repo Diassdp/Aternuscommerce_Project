@@ -1,6 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
+<<<<<<< HEAD
     <style name="Base.Theme.AternusCommerce" parent="Theme.AppCompat.DayNight.NoActionBar">
+=======
+    <style name="Base.Theme.AternusCommerce" parent="Theme.Material3.DayNight.NoActionBar">
+>>>>>>> 01f82ed45823827128cb6468497ede56e84406e9
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>

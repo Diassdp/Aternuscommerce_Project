@@ -1,64 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context="com.aplikasi.aternuscommerce.Register">
+    tools:context="com.aplikasi.aternuscommerce.Register"
+    android:background="@color/primary"
+    android:gravity="center">
 
+    <!-- Logo Image -->
+
+    <!-- Container for Registration Elements -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="252dp"
-        android:orientation="vertical">
+        android:layout_width="373dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_rectangle"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
 
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="223dp"
+            android:layout_height="84dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/logo2" />
+        <!-- Fullname EditText -->
         <EditText
             android:id="@+id/fullnameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondary"
             android:hint="Fullname" />
 
+        <!-- Username EditText -->
         <EditText
             android:id="@+id/usernameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondary"
             android:hint="Username" />
 
+        <!-- Email EditText -->
         <EditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondary"
             android:hint="Alamat Email" />
 
+        <!-- Password EditText -->
         <EditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondary"
             android:hint="Kata Sandi"
             android:inputType="textPassword" />
 
+        <!-- Confirm Password EditText -->
         <EditText
             android:id="@+id/confirmPasswordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondary"
             android:hint="Konfirmasi Kata Sandi"
             android:inputType="textPassword" />
 
-
+        <!-- Register Button -->
         <Button
             android:id="@+id/registerButton"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:text="Daftar" />
-
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_setting"
+            android:backgroundTint="@color/primary"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:text="REGISTER" />
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/debug"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="" />
+    <!-- Debug TextView -->
+<TextView
+android:id="@+id/debug"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text=""
+android:paddingTop="16dp" />
 
-</LinearLayout>
+    </LinearLayout>

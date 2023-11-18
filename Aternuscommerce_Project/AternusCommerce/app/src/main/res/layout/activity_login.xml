@@ -7,36 +7,76 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context="com.aplikasi.aternuscommerce.Login">
+    android:gravity="center"
+    android:background="@color/primary"
+    >
 
-    <EditText
-        android:id="@+id/emailOrUsernameEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Alamat Email atau Nama Pengguna"/>
 
-    <EditText
-        android:id="@+id/loginPasswordEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Kata Sandi"
-        android:inputType="textPassword"/>
+    <!-- Small Rectangle Around Login Elements -->
+    <LinearLayout
+        android:layout_width="368dp"
+        android:layout_height="401dp"
+        android:background="@drawable/rounded_rectangle"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:id="@+id/loginButton"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        android:id="@+id/registerButton"/>
+        <!-- Logo Image -->
 
-    <TextView
-        android:id="@+id/debug"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="" />
+        <!-- Email or Username EditText -->
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="150dp"
+            android:layout_height="71dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/logo2" />
 
+        <EditText
+            android:id="@+id/emailOrUsernameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondary"
+            android:hint="Alamat Email atau Nama Pengguna" />
+
+        <!-- Password EditText -->
+        <EditText
+            android:id="@+id/loginPasswordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondary"
+            android:hint="Kata Sandi"
+            android:inputType="textPassword" />
+
+        <!-- Login Button -->
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_setting"
+            android:backgroundTint="@color/primary"
+            android:textColor="@color/white"
+            android:text="Login" />
+
+        <!-- Register Button -->
+        <TextView
+            android:id="@+id/registerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don’t have an account? Register"
+            android:textColor="@android:color/darker_gray"
+            android:paddingTop="16dp"
+            android:background="@drawable/textview_selector" />
+
+
+        <!-- Debug TextView -->
+        <TextView
+            android:id="@+id/debug"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="" />
+
+    </LinearLayout>
 </LinearLayout>

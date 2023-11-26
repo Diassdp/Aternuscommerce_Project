@@ -18,6 +18,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.Product.TableProduct"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Product.ShelfProduct"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Product.LampProduct"
+            android:exported="false" />
+        <activity
             android:name=".Activity.Product.ChairsProduct"
             android:exported="false" />
         <activity

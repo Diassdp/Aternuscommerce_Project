@@ -11,16 +11,32 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.aplikasi.aternuscommerce.API.Connection;
 import com.aplikasi.aternuscommerce.Activity.Feature.Login;
+import com.aplikasi.aternuscommerce.Activity.Feature.Profile;
 import com.aplikasi.aternuscommerce.Adapter.PopularAdapter;
 import com.aplikasi.aternuscommerce.Domain.PopularDomain;
 import com.aplikasi.aternuscommerce.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapterPopular;
+    private TextView profilename,poin;
     private ImageView Profile,Chair,Table,Lamp,Shelf;
     private RecyclerView recyclerViewPopuler;
     private SharedPreferences User_ID;
@@ -29,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        profilename = findViewById(R.id.profilename);
+        poin = findViewById(R.id.poin);
         Profile = findViewById(R.id.Profile);
         Chair = findViewById(R.id.ChairBtn);
         Table = findViewById(R.id.TableBtn);
@@ -42,7 +59,17 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().hide();
         }
 
+        if (login_status == FALSE) {
+            profilename.setVisibility(View.GONE);
+            poin.setVisibility(View.GONE);
+        } else {
+            profilename.setVisibility(View.VISIBLE);
+            poin.setVisibility(View.VISIBLE);
+            ProfileName();
+        }
+
         initRecyclerView();
+
         Profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,25 +95,27 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, com.aplikasi.aternuscommerce.Activity.Product.ChairsProduct.class);
                 startActivity(intent);
-                finish();
             }
         });
         Table.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, com.aplikasi.aternuscommerce.Activity.Product.TableProduct.class);
+                startActivity(intent);
             }
         });
         Lamp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, com.aplikasi.aternuscommerce.Activity.Product.LampProduct.class);
+                startActivity(intent);
             }
         });
         Shelf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, com.aplikasi.aternuscommerce.Activity.Product.ShelfProduct.class);
+                startActivity(intent);
             }
         });
     }
@@ -106,4 +135,46 @@ public class MainActivity extends AppCompatActivity {
         adapterPopular = new PopularAdapter(items);
         recyclerViewPopuler.setAdapter(adapterPopular);
     }
+
+    private void ProfileName(){
+        Connection connection = new Connection();
+        String url = connection.getUrlSetup() + "populate.php";
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String userId = User_ID.getString("user_id", "");
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+                    boolean success = jsonResponse.getBoolean("success");
+                    if (success) {
+                        String fullName = jsonResponse.getString("fullname");
+                        profilename.setText(fullName);
+                    } else {
+                        String message = jsonResponse.getString("message");
+                        Toast.makeText(com.aplikasi.aternuscommerce.Activity.MainActivity.this, message, Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(MainActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() {
+                // Sending Parameter Or Data into PHP API
+                Map<String, String> params = new HashMap<>();
+                params.put("user_id", userId); // Pass the user_id to the PHP script
+                return params;
+            }
+        };
+        queue.add(stringRequest);
+    }
+
 }

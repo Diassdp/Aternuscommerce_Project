@@ -7,6 +7,6 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface ChairsApi {
-    @GET("data_chair.json")
+    @GET("data_chair")
     Call<ChairResponse<ProductDomain>> getChairs();
 }

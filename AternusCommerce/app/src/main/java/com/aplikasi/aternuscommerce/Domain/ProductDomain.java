@@ -4,19 +4,17 @@ import com.aplikasi.aternuscommerce.Activity.Product.ChairsProduct;
 
 public class ProductDomain {
     int id;
-    String title, description, type, poster, price, score,review;
+    String title, description, category,price,review,score,poster;
 
-    public ProductDomain(String title, String description, String picUrl, String price, String type, String review, String score, int numberInCart) {
+    public ProductDomain(String title, String description, String poster, String price, String category, String review, String score, int numberInCart) {
         this.title = title;
         this.description = description;
-        this.poster = poster;
+        this.category = category;
         this.price = price;
-        this.type = type;
         this.review = review;
         this.score = score;
+        this.poster = poster;
     }
-
-
     public int getId() {
         return id;
     }
@@ -41,20 +39,12 @@ public class ProductDomain {
         this.description = description;
     }
 
-    public String getType() {
-        return type;
+    public String getCategory() {
+        return category;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getPoster() {
-        return poster;
-    }
-
-    public void setPoster(String poster) {
-        this.poster = poster;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getPrice() {
@@ -65,6 +55,14 @@ public class ProductDomain {
         this.price = price;
     }
 
+    public String getReview() {
+        return review;
+    }
+
+    public void setReview(String review) {
+        this.review = review;
+    }
+
     public String getScore() {
         return score;
     }
@@ -73,11 +71,11 @@ public class ProductDomain {
         this.score = score;
     }
 
-    public String getReview() {
-        return review;
+    public String getPoster() {
+        return poster;
     }
 
-    public void setReview(String review) {
-        this.review = review;
+    public void setPoster(String poster) {
+        this.poster = poster;
     }
 }

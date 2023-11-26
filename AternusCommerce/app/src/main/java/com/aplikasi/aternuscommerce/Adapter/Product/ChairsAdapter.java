@@ -57,7 +57,7 @@ public class ChairsAdapter extends RecyclerView.Adapter<ChairsAdapter.ViewHolder
                 titleTxt.setText(productDomain.getTitle());
                 feeTxt.setText(productDomain.getPrice());
                 scoreTxt.setText(productDomain.getScore());
-                categoriTxt.setText(productDomain.getType());
+                categoriTxt.setText(productDomain.getCategory());
                 Glide.with(activity).load(productDomain.getPoster()).into(poster);
             }
         }

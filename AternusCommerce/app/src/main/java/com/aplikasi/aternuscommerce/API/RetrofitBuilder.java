@@ -27,7 +27,7 @@ public class RetrofitBuilder {
         gsonBuilder.setLenient();
         Gson gson = gsonBuilder.create();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://github.com/ahmadnazhmy/aternuscommerce_data/")
+                .baseUrl("https://raw.githubusercontent.com/ahmadnazhmy/aternuscommerce_data/main/")
                 .client(okhttpBuilder.build())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();

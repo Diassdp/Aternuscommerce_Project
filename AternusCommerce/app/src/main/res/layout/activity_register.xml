@@ -8,7 +8,7 @@
     android:padding="16dp"
     android:background="@color/primary"
     android:gravity="center"
-    tools:context="com.aplikasi.aternuscommerce.Activity.Register">
+    tools:context="com.aplikasi.aternuscommerce.Activity.Feature.Register">
 
     <!-- Logo Image -->
 

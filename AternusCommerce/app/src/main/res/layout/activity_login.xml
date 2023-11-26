@@ -9,7 +9,7 @@
     android:padding="16dp"
     android:gravity="center"
     android:background="@color/primary"
-    tools:context="com.aplikasi.aternuscommerce.Activity.Login">
+    tools:context="com.aplikasi.aternuscommerce.Activity.Feature.Login">
 
     <!-- Small Rectangle Around Login Elements -->
     <LinearLayout

@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:gravity="center"
-    tools:context="com.aplikasi.aternuscommerce.Activity.Login"
+    tools:context="com.aplikasi.aternuscommerce.Activity.Feature.Login"
     android:background="@color/secondary">
 
 <LinearLayout

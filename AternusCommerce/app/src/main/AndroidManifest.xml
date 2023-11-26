@@ -18,16 +18,19 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.Product.ChairsProduct"
+            android:exported="false" />
+        <activity
             android:name=".Activity.Wishlist"
             android:exported="false" />
         <activity
             android:name=".Activity.ShopingCart"
             android:exported="false" />
         <activity
-            android:name=".Activity.Profile"
+            android:name=".Activity.Feature.Profile"
             android:exported="false" />
         <activity
-            android:name=".Activity.SplashActivity"
+            android:name=".Activity.Feature.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,10 +39,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity.Login"
+            android:name=".Activity.Feature.Login"
             android:exported="false" />
         <activity
-            android:name=".Activity.Register"
+            android:name=".Activity.Feature.Register"
             android:exported="false" />
         <activity
             android:name=".Activity.MainActivity"

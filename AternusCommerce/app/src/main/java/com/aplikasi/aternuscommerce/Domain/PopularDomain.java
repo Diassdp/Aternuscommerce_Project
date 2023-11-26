@@ -83,7 +83,4 @@ public class PopularDomain implements Serializable {
         return numberInCart;
     }
 
-    public void setNumberInCart(int numberInCart) {
-        this.numberInCart = numberInCart;
-    }
 }

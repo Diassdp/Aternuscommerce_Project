@@ -1,7 +1,6 @@
 package com.aplikasi.aternuscommerce.Activity;
 
 import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -13,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.aplikasi.aternuscommerce.Activity.Feature.Login;
 import com.aplikasi.aternuscommerce.Adapter.PopularAdapter;
 import com.aplikasi.aternuscommerce.Domain.PopularDomain;
 import com.aplikasi.aternuscommerce.R;
@@ -54,18 +54,21 @@ public class MainActivity extends AppCompatActivity {
                 if(login_status == FALSE){
                     Intent intent = new Intent(MainActivity.this, Login.class);
                     startActivity(intent);
+                    finish();
                 } else {
-                    Intent intent = new Intent(MainActivity.this, Profile.class);
+                    Intent intent = new Intent(MainActivity.this, com.aplikasi.aternuscommerce.Activity.Feature.Profile.class);
                     startActivity(intent);
+                    finish();
                 }
-
             }
         });
 
         Chair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, com.aplikasi.aternuscommerce.Activity.Product.ChairsProduct.class);
+                startActivity(intent);
+                finish();
             }
         });
         Table.setOnClickListener(new View.OnClickListener() {

@@ -1,4 +1,4 @@
-package com.aplikasi.aternuscommerce.Activity;
+package com.aplikasi.aternuscommerce.Activity.Feature;
 
 import androidx.appcompat.app.AppCompatActivity;
 

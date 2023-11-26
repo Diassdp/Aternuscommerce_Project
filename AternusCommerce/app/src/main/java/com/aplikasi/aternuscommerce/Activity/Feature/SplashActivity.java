@@ -1,4 +1,4 @@
-package com.aplikasi.aternuscommerce.Activity;
+package com.aplikasi.aternuscommerce.Activity.Feature;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.aplikasi.aternuscommerce.Activity.MainActivity;
 import com.aplikasi.aternuscommerce.R;
 
 public class SplashActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.aplikasi.aternuscommerce.Activity;
+package com.aplikasi.aternuscommerce.Activity.Feature;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.aplikasi.aternuscommerce.API.Connection;
+import com.aplikasi.aternuscommerce.Activity.MainActivity;
 import com.aplikasi.aternuscommerce.R;
 
 import org.json.JSONException;

@@ -84,11 +84,9 @@ public class MainActivity extends AppCompatActivity {
                 if(login_status == FALSE){
                     Intent intent = new Intent(MainActivity.this, Login.class);
                     startActivity(intent);
-                    finish();
                 } else {
                     Intent intent = new Intent(MainActivity.this, com.aplikasi.aternuscommerce.Activity.Feature.Profile.class);
                     startActivity(intent);
-                    finish();
                 }
             }
         });
@@ -104,11 +102,9 @@ public class MainActivity extends AppCompatActivity {
                 if(login_status == FALSE){
                     Intent intent = new Intent(MainActivity.this, Login.class);
                     startActivity(intent);
-                    finish();
                 } else {
                     Intent intent = new Intent(MainActivity.this, com.aplikasi.aternuscommerce.Activity.Feature.Profile.class);
                     startActivity(intent);
-                    finish();
                 }
             }
         });
@@ -198,7 +194,6 @@ public class MainActivity extends AppCompatActivity {
                 }) {
             @Override
             protected Map<String, String> getParams() {
-                // Sending Parameter Or Data into PHP API
                 Map<String, String> params = new HashMap<>();
                 params.put("user_id", userId); // Pass the user_id to the PHP script
                 return params;

@@ -9,11 +9,6 @@
     android:background="@color/primary"
     android:gravity="center"
     tools:context="com.aplikasi.aternuscommerce.Activity.Feature.Register">
-
-    <!-- Logo Image -->
-
-
-    <!-- Container for Registration Elements -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

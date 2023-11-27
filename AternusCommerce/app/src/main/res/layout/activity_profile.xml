@@ -24,32 +24,41 @@
             android:layout_marginBottom="20dp"
             android:src="@drawable/profile" />
 
-        <EditText
-            android:id="@+id/fullNameEditText"
-            android:layout_width="240dp"
-            android:layout_height="44dp"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:background="@drawable/input_box"
-            android:hint="Full Name" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
 
-        <EditText
-            android:id="@+id/emailEditText"
-            android:layout_width="240dp"
-            android:layout_height="44dp"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:background="@drawable/input_box"
-            android:hint="Email" />
+                <EditText
+                    android:id="@+id/fullNameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Full Name"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/passwordEditText"
-            android:layout_width="240dp"
-            android:layout_height="44dp"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:background="@drawable/input_box"
-            android:hint="Password" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+                <EditText
+                    android:id="@+id/emailEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+                <EditText
+                    android:id="@+id/passwordEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <Button
             android:id="@+id/saveButton"

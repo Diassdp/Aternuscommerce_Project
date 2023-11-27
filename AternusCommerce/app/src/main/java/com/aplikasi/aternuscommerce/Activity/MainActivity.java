@@ -37,7 +37,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapterPopular;
     private TextView profilename,poin;
-    private ImageView Profile,Chair,Table,Lamp,Shelf;
+    private ImageView Profile,Chair,Table,Lamp,Shelf,ProfileBtn,Wishlist,Cart;
     private RecyclerView recyclerViewPopuler;
     private SharedPreferences User_ID;
 
@@ -48,10 +48,13 @@ public class MainActivity extends AppCompatActivity {
         profilename = findViewById(R.id.profilename);
         poin = findViewById(R.id.poin);
         Profile = findViewById(R.id.Profile);
+        ProfileBtn = findViewById(R.id.Profilebtn);
         Chair = findViewById(R.id.ChairBtn);
         Table = findViewById(R.id.TableBtn);
         Lamp = findViewById(R.id.LampBtn);
         Shelf = findViewById(R.id.ShelfBtn);
+        Wishlist = findViewById(R.id.CartBtn);// ON PROGRESS
+        Cart = findViewById(R.id.WishlistBtn);// ON PROGRESS
 
         User_ID = getSharedPreferences("userSession", MODE_PRIVATE);
         boolean login_status = User_ID.contains("user_id");
@@ -71,6 +74,26 @@ public class MainActivity extends AppCompatActivity {
         initRecyclerView();
 
         Profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.animate().scaleX(1.5f).scaleY(1.5f).setDuration(200).withEndAction(new Runnable() {
+                    @Override
+                    public void run() {v.setScaleX(1.0f);v.setScaleY(1.0f);}
+                }).start();
+
+                if(login_status == FALSE){
+                    Intent intent = new Intent(MainActivity.this, Login.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Intent intent = new Intent(MainActivity.this, com.aplikasi.aternuscommerce.Activity.Feature.Profile.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        });
+
+        ProfileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 v.animate().scaleX(1.5f).scaleY(1.5f).setDuration(200).withEndAction(new Runnable() {

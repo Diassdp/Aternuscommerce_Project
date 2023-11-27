@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
         Table = findViewById(R.id.TableBtn);
         Lamp = findViewById(R.id.LampBtn);
         Shelf = findViewById(R.id.ShelfBtn);
-        Wishlist = findViewById(R.id.CartBtn);// ON PROGRESS
-        Cart = findViewById(R.id.WishlistBtn);// ON PROGRESS
+        Wishlist = findViewById(R.id.WishlistBtn);// ON PROGRESS
+        Cart = findViewById(R.id.CartBtn);// ON PROGRESS
 
         User_ID = getSharedPreferences("userSession", MODE_PRIVATE);
         boolean login_status = User_ID.contains("user_id");
@@ -138,6 +138,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, com.aplikasi.aternuscommerce.Activity.Product.ShelfProduct.class);
+                startActivity(intent);
+            }
+        });
+        Cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, com.aplikasi.aternuscommerce.Activity.ShopingCart.class);
                 startActivity(intent);
             }
         });

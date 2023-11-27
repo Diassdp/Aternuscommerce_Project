@@ -144,6 +144,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Wishlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, com.aplikasi.aternuscommerce.Activity.Wishlist.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initRecyclerView() {

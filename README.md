@@ -48,8 +48,6 @@ Ikuti langkah-langkah ini untuk memastikan instalasi ATERNUSCOMMERCE berjalan de
 - Roles:
   - Head Programmer
   - Full Stack Developer
-  - Front End Developer
-  - Back End Developer
   - Database Designer
 
 ## Yonathan
@@ -64,7 +62,7 @@ Ikuti langkah-langkah ini untuk memastikan instalasi ATERNUSCOMMERCE berjalan de
 
 - Student ID: 2110512142
 - Roles:
-  - UI/UX Designer
+  - Head UI/UX Designer
   - Front End Developer
 
 ## Arya Indera Putra

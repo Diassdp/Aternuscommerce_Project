@@ -41,7 +41,7 @@ public class ChairsProduct extends AppCompatActivity {
         requestQueue = VolleySingleton.getmInstance(this).getRequestQueue();
 
         chairList = new ArrayList<>();
-        fetchLaptop();
+        fetchdata();
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("List Chair");
@@ -49,7 +49,7 @@ public class ChairsProduct extends AppCompatActivity {
         }
     }
 
-    private void fetchLaptop() {
+    private void fetchdata() {
         String url="https://raw.githubusercontent.com/ahmadnazhmy/aternuscommerce_data/main/data_chair";
         JsonArrayRequest jsonArrayRequest =  new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override

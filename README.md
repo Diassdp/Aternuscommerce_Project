@@ -6,8 +6,8 @@
 2. Move the "aternuscommerce_db" file into the "HTDOCS" directory within the XAMPP folder.
 
 ## Step 2: Import Database in PHPMyAdmin
-
-1. Access PHPMyAdmin and import the "aternuscommerce_db.sql" inside the Database folder, into your database.
+1. Create "aternuscommerce_db" inside your PHPMyAdmin Database
+2. import the "aternuscommerce_db.sql" inside the Database folder, into your database.
 
 ## Step 3: Open Project in Android Studio
 

@@ -35,7 +35,11 @@ Follow these steps to ensure a smooth installation of ATERNUSCOMMERCE.
 2. Buka proyek "aternuscommerce" di dalam Android Studio.
 
 Ikuti langkah-langkah ini untuk memastikan instalasi ATERNUSCOMMERCE berjalan dengan lancar.
+
+
 ---
+
+
 # Creators / Pembuat
 
 ## Dias Syahadatputra

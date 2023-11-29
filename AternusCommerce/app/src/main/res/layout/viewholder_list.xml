@@ -1,94 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp"
     android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_weight="0.5"
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btn_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:elevation="3dp">
+
+    <ImageView
+        android:id="@+id/pic"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/item_1"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="55dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/white_background2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/scoreTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="0"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/star"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/scoreTxt"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="240dp"
+            android:layout_height="120dp"
+            android:background="@color/white"
+            android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/categoriTxt"
+            app:layout_constraintTop_toTopOf="@+id/pic"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/titleTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="Title"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/view"
+            app:layout_constraintTop_toTopOf="@+id/view" />
+
+        <TextView
+            android:id="@+id/feeTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="148dp"
+            android:text="Rp2.239.000"
+            android:textColor="@color/blue1"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTxt"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/categoriTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="148dp"
+            android:text="Neon lamp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
 
         <ImageView
-            android:id="@+id/posterView"
-            android:layout_width="128dp"
-            android:layout_height="105dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:scaleType="centerCrop" />
+            android:id="@+id/imageView13"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="4dp"
+            android:src="@drawable/review_1"
+            app:layout_constraintBottom_toBottomOf="@id/feeTxt"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginLeft="8dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <TableLayout
-            android:id="@+id/textViewTabel"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/review"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="16dp">
-
-        <TextView
+            android:layout_marginEnd="4dp"
+            android:text="1"
             android:textColor="@color/blue1"
-            android:text="Title"
-            android:id="@+id/tv_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintBottom_toBottomOf="@+id/imageView13"
+            app:layout_constraintEnd_toStartOf="@id/imageView13"
+            app:layout_constraintTop_toTopOf="@id/imageView13"
+            app:layout_constraintVertical_bias="1.0" />
 
-        <TextView
-            android:textColor="@color/blue1"
-            android:text="category"
-            android:id="@+id/tv_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/WishlistBtn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="180dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/wishlist_btn"
+            android:tint="@color/primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.963"
+            tools:ignore="UseAppTint" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:textColor="@color/blue1"
-            android:text="price"
-            android:id="@+id/tv_price"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        </TableLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_toEndOf="@+id/poster_image"
-            android:layout_toRightOf="@+id/poster_image"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btn_wishlist"
-                style="@style/Base.Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="wishlist"
-                android:textSize="12sp" />
-
-            <Button
-                android:id="@+id/btn_detail"
-                style="@style/Base.Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="detail"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-    </LinearLayout>
 </LinearLayout>

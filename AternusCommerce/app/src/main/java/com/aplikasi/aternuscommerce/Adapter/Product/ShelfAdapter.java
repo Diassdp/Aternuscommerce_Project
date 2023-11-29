@@ -40,9 +40,11 @@ public class ShelfAdapter extends RecyclerView.Adapter<ShelfAdapter.ShelfHolder>
     public void onBindViewHolder(@NonNull ShelfHolder holder, int position) {
 
         Shelf shelf = shelfList.get(position);
-        holder.tittle.setText(shelf.getTittle().toString());
+        holder.title.setText(shelf.getTittle().toString());
         holder.category.setText(shelf.getCategory().toString());
         holder.price.setText(shelf.getPrice().toString());
+        holder.review.setText(shelf.getReview().toString());
+        holder.score.setText(shelf.getScore().toString());
         Glide.with(context).load(shelf.getPoster()).into(holder.poster);
 
         holder.wishlist.setOnClickListener(new View.OnClickListener() {
@@ -78,19 +80,21 @@ public class ShelfAdapter extends RecyclerView.Adapter<ShelfAdapter.ShelfHolder>
     }
 
     public class ShelfHolder extends RecyclerView.ViewHolder{
-        ImageView poster;
-        TextView tittle, category, price;
-        Button wishlist, detail;
-        ConstraintLayout constraintLayout;
+        ImageView poster,wishlist;
+        TextView title, category, price,review,score;
+        Button cart;
+        ConstraintLayout constraintLayout,detail;
 
         public ShelfHolder(@NonNull View itemView) {
             super(itemView);
 
-            poster = itemView.findViewById(R.id.posterView);
-            tittle = itemView.findViewById(R.id.tv_name);
-            category = itemView.findViewById(R.id.tv_category);
-            price = itemView.findViewById(R.id.tv_price);
-            wishlist = itemView.findViewById(R.id.btn_wishlist);
+            poster = itemView.findViewById(R.id.pic);
+            title = itemView.findViewById(R.id.titleTxt);
+            category = itemView.findViewById(R.id.categoriTxt);
+            price = itemView.findViewById(R.id.feeTxt);
+            wishlist = itemView.findViewById(R.id.WishlistBtn);
+            review = itemView.findViewById(R.id.review);
+            score = itemView.findViewById(R.id.scoreTxt);
             detail = itemView.findViewById(R.id.btn_detail);
         }
     }

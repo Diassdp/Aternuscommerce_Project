@@ -1,9 +1,13 @@
 package com.aplikasi.aternuscommerce.Activity.Detail;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +15,6 @@ import com.aplikasi.aternuscommerce.R;
 import com.bumptech.glide.Glide;
 
 public class DetailShelf extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +38,6 @@ public class DetailShelf extends AppCompatActivity {
         String price = bundle.getString("price");
         String poster = bundle.getString("poster");
 
-
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(title);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -50,9 +52,11 @@ public class DetailShelf extends AppCompatActivity {
         description_tv.setText(description.toString());
     }
 
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {// Kembali ke halaman sebelumnya
+        if (item.getItemId() == android.R.id.home) {
             onBackPressed();
             return true;
         }

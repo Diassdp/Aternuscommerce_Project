@@ -40,15 +40,17 @@ public class LampAdapter extends RecyclerView.Adapter<LampAdapter.LampHolder>{
     public void onBindViewHolder(@NonNull LampHolder holder, int position) {
 
         Lamp lamp = lampList.get(position);
-        holder.tittle.setText(lamp.getTittle().toString());
+        holder.title.setText(lamp.getTittle().toString());
         holder.category.setText(lamp.getCategory().toString());
         holder.price.setText(lamp.getPrice().toString());
+        holder.review.setText(lamp.getReview().toString());
+        holder.score.setText(lamp.getScore().toString());
         Glide.with(context).load(lamp.getPoster()).into(holder.poster);
 
         holder.wishlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Added to wishlist: " + lamp.getTittle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Item Added to Wishlist: " + lamp.getTittle(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -78,19 +80,21 @@ public class LampAdapter extends RecyclerView.Adapter<LampAdapter.LampHolder>{
     }
 
     public class LampHolder extends RecyclerView.ViewHolder{
-        ImageView poster;
-        TextView tittle, category, price;
-        Button wishlist, detail;
-        ConstraintLayout constraintLayout;
+        ImageView poster,wishlist;
+        TextView title, category, price,review,score;
+        Button cart;
+        ConstraintLayout constraintLayout,detail;
 
         public LampHolder(@NonNull View itemView) {
             super(itemView);
 
-            poster = itemView.findViewById(R.id.posterView);
-            tittle = itemView.findViewById(R.id.tv_name);
-            category = itemView.findViewById(R.id.tv_category);
-            price = itemView.findViewById(R.id.tv_price);
-            wishlist = itemView.findViewById(R.id.btn_wishlist);
+            poster = itemView.findViewById(R.id.pic);
+            title = itemView.findViewById(R.id.titleTxt);
+            category = itemView.findViewById(R.id.categoriTxt);
+            price = itemView.findViewById(R.id.feeTxt);
+            wishlist = itemView.findViewById(R.id.WishlistBtn);
+            review = itemView.findViewById(R.id.review);
+            score = itemView.findViewById(R.id.scoreTxt);
             detail = itemView.findViewById(R.id.btn_detail);
         }
     }

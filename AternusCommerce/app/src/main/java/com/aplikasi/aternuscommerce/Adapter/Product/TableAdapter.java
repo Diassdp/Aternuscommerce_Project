@@ -40,11 +40,12 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableHolder>
     public void onBindViewHolder(@NonNull TableHolder holder, int position) {
 
         Table table = tableList.get(position);
-        holder.tittle.setText(table.getTittle().toString());
+        holder.title.setText(table.getTittle().toString());
         holder.category.setText(table.getCategory().toString());
         holder.price.setText(table.getPrice().toString());
+        holder.review.setText(table.getReview().toString());
+        holder.score.setText(table.getScore().toString());
         Glide.with(context).load(table.getPoster()).into(holder.poster);
-
         holder.wishlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,18 +79,20 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableHolder>
     }
 
     public class TableHolder extends RecyclerView.ViewHolder{
-        ImageView poster;
-        TextView tittle, category, price;
-        Button wishlist, detail;
-        ConstraintLayout constraintLayout;
+        ImageView poster,wishlist;
+        TextView title, category, price,review,score;
+        Button cart;
+        ConstraintLayout constraintLayout,detail;
         public TableHolder(@NonNull View itemView) {
             super(itemView);
 
-            poster = itemView.findViewById(R.id.posterView);
-            tittle = itemView.findViewById(R.id.tv_name);
-            category = itemView.findViewById(R.id.tv_category);
-            price = itemView.findViewById(R.id.tv_price);
-            wishlist = itemView.findViewById(R.id.btn_wishlist);
+            poster = itemView.findViewById(R.id.pic);
+            title = itemView.findViewById(R.id.titleTxt);
+            category = itemView.findViewById(R.id.categoriTxt);
+            price = itemView.findViewById(R.id.feeTxt);
+            wishlist = itemView.findViewById(R.id.WishlistBtn);
+            review = itemView.findViewById(R.id.review);
+            score = itemView.findViewById(R.id.scoreTxt);
             detail = itemView.findViewById(R.id.btn_detail);
         }
     }

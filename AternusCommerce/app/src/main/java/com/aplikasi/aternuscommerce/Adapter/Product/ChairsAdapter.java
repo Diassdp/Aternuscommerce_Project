@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,15 +41,17 @@ public class ChairsAdapter extends RecyclerView.Adapter<ChairsAdapter.ChairHolde
     public void onBindViewHolder(@NonNull ChairHolder holder, int position) {
 
         Chair chair = chairList.get(position);
-        holder.tittle.setText(chair.getTittle().toString());
+        holder.title.setText(chair.getTittle().toString());
         holder.category.setText(chair.getCategory().toString());
         holder.price.setText(chair.getPrice().toString());
+        holder.review.setText(chair.getReview().toString());
+        holder.score.setText(chair.getScore().toString());
         Glide.with(context).load(chair.getPoster()).into(holder.poster);
 
         holder.wishlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Added to wishlist: " + chair.getTittle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Item Added to Wishlist: " + chair.getTittle(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -78,19 +81,21 @@ public class ChairsAdapter extends RecyclerView.Adapter<ChairsAdapter.ChairHolde
     }
 
     public class ChairHolder extends RecyclerView.ViewHolder{
-        ImageView poster;
-        TextView tittle, category, price;
-        Button wishlist, detail;
-        ConstraintLayout constraintLayout;
+        ImageView poster,wishlist;
+        TextView title, category, price,review,score;
+        Button cart;
+        ConstraintLayout constraintLayout,detail;
 
         public ChairHolder(@NonNull View itemView) {
             super(itemView);
 
-            poster = itemView.findViewById(R.id.posterView);
-            tittle = itemView.findViewById(R.id.tv_name);
-            category = itemView.findViewById(R.id.tv_category);
-            price = itemView.findViewById(R.id.tv_price);
-            wishlist = itemView.findViewById(R.id.btn_wishlist);
+            poster = itemView.findViewById(R.id.pic);
+            title = itemView.findViewById(R.id.titleTxt);
+            category = itemView.findViewById(R.id.categoriTxt);
+            price = itemView.findViewById(R.id.feeTxt);
+            wishlist = itemView.findViewById(R.id.WishlistBtn);
+            review = itemView.findViewById(R.id.review);
+            score = itemView.findViewById(R.id.scoreTxt);
             detail = itemView.findViewById(R.id.btn_detail);
         }
     }

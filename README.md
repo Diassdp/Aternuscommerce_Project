@@ -35,3 +35,36 @@ Follow these steps to ensure a smooth installation of ATERNUSCOMMERCE.
 2. Buka proyek "aternuscommerce" di dalam Android Studio.
 
 Ikuti langkah-langkah ini untuk memastikan instalasi ATERNUSCOMMERCE berjalan dengan lancar.
+---
+# Creators / Pembuat
+
+## Dias Syahadatputra
+
+- Student ID: 2110512154
+- Roles:
+  - Head Programmer
+  - Full Stack Developer
+  - Front End Developer
+  - Back End Developer
+  - Database Designer
+
+## Yonathan
+
+- Student ID: 2110512134
+- Roles:
+  - Second Programmer
+  - UI/UX Designer
+  - Front End Developer
+
+## Ahmad Nazhmy Zahrian
+
+- Student ID: 2110512142
+- Roles:
+  - UI/UX Designer
+  - Front End Developer
+
+## Arya Indera Putra
+
+- Student ID: 2110512136
+- Roles:
+  - Database Designer

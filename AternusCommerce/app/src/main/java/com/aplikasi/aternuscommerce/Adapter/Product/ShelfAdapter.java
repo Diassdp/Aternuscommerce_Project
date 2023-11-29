@@ -1,62 +1,97 @@
 package com.aplikasi.aternuscommerce.Adapter.Product;
 
-import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.aplikasi.aternuscommerce.API.JsonApi.Shelfs;
-import com.aplikasi.aternuscommerce.Domain.ProductDomain;
+import com.aplikasi.aternuscommerce.Activity.Detail.DetailChair;
+import com.aplikasi.aternuscommerce.Domain.Shelf;
 import com.aplikasi.aternuscommerce.R;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class ShelfAdapter extends RecyclerView.Adapter<ShelfAdapter.ViewHolder>{
-    List<ProductDomain> result;
-    Activity activity;
-    public ShelfAdapter(List<ProductDomain> result, Activity activity){
-        this.result = result;
-        this.activity = activity;
+public class ShelfAdapter extends RecyclerView.Adapter<ShelfAdapter.ShelfHolder>{
+    public Context context;
+    private List<Shelf> shelfList;
+    public ShelfAdapter(Context context , List<Shelf> shelf){
+        this.context = context;
+        shelfList = shelf;
     }
-    public ShelfAdapter(Shelfs shelfs) {
-    }
-
     @NonNull
     @Override
-    public ShelfAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ShelfAdapter.ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_shelf_list, parent, false));
+    public ShelfHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.viewholder_list, parent,false);
+        return new ShelfHolder(view);
     }
+
     @Override
-    public void onBindViewHolder(@NonNull ShelfAdapter.ViewHolder holder, int position) {
-        holder.bind(result.get(position));
+    public void onBindViewHolder(@NonNull ShelfHolder holder, int position) {
+
+        Shelf shelf = shelfList.get(position);
+        holder.tittle.setText(shelf.getTittle().toString());
+        holder.category.setText(shelf.getCategory().toString());
+        holder.price.setText(shelf.getPrice().toString());
+        Glide.with(context).load(shelf.getPoster()).into(holder.poster);
+
+        holder.wishlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "Added to wishlist: " + shelf.getTittle(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        holder.detail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DetailChair.class);
+
+                Bundle bundle =  new Bundle();
+                bundle.putString("title", shelf.getTittle());
+                bundle.putString("description", shelf.getDescription());
+                bundle.putString("category", shelf.getCategory());
+                bundle.putString("price", shelf.getPrice());
+                bundle.putString("score", shelf.getScore());
+                bundle.putString("review", shelf.getReview());
+                bundle.putString("poster", shelf.getPoster());
+
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
     }
+
     @Override
     public int getItemCount() {
-        return result != null ? result.size() : 0;
+        return shelfList.size();
     }
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView titleTxt, feeTxt, scoreTxt, categoriTxt;
+
+    public class ShelfHolder extends RecyclerView.ViewHolder{
         ImageView poster;
-        public ViewHolder(@NonNull View itemView) {
+        TextView tittle, category, price;
+        Button wishlist, detail;
+        ConstraintLayout constraintLayout;
+
+        public ShelfHolder(@NonNull View itemView) {
             super(itemView);
-            titleTxt = itemView.findViewById(R.id.titleTxt);
-            feeTxt = itemView.findViewById(R.id.feeTxt);
-            scoreTxt = itemView.findViewById(R.id.scoreTxt);
-            categoriTxt = itemView.findViewById(R.id.categoriTxt);
-            poster = itemView.findViewById(R.id.pic);
-        }
-        public void bind(ProductDomain productDomain) {
-            titleTxt.setText(productDomain.getTitle());
-            feeTxt.setText(productDomain.getPrice());
-            scoreTxt.setText(productDomain.getScore());
-            categoriTxt.setText(productDomain.getCategory());
-            Glide.with(activity).load(productDomain.getPoster()).into(poster);
+
+            poster = itemView.findViewById(R.id.posterView);
+            tittle = itemView.findViewById(R.id.tv_name);
+            category = itemView.findViewById(R.id.tv_category);
+            price = itemView.findViewById(R.id.tv_price);
+            wishlist = itemView.findViewById(R.id.btn_wishlist);
+            detail = itemView.findViewById(R.id.btn_detail);
         }
     }
 }

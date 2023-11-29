@@ -1,63 +1,96 @@
 package com.aplikasi.aternuscommerce.Adapter.Product;
 
-import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.aplikasi.aternuscommerce.API.JsonApi.Lamps;
-import com.aplikasi.aternuscommerce.API.JsonApi.Tables;
-import com.aplikasi.aternuscommerce.Domain.ProductDomain;
+import com.aplikasi.aternuscommerce.Activity.Detail.DetailChair;
+import com.aplikasi.aternuscommerce.Domain.Table;
 import com.aplikasi.aternuscommerce.R;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class TableAdapter extends RecyclerView.Adapter<TableAdapter.ViewHolder>{
-    List<ProductDomain> result;
-    Activity activity;
-    public TableAdapter(List<ProductDomain> result, Activity activity){
-        this.result = result;
-        this.activity = activity;
+public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableHolder>{
+    public Context context;
+    private List<Table> tableList;
+    public TableAdapter(Context context , List<Table> table){
+        this.context = context;
+        tableList = table;
     }
-    public TableAdapter(Tables tables) {
-    }
-
     @NonNull
     @Override
-    public TableAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new TableAdapter.ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_table_list, parent, false));
+    public TableHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.viewholder_list, parent,false);
+        return new TableHolder(view);
     }
+
     @Override
-    public void onBindViewHolder(@NonNull TableAdapter.ViewHolder holder, int position) {
-        holder.bind(result.get(position));
+    public void onBindViewHolder(@NonNull TableHolder holder, int position) {
+
+        Table table = tableList.get(position);
+        holder.tittle.setText(table.getTittle().toString());
+        holder.category.setText(table.getCategory().toString());
+        holder.price.setText(table.getPrice().toString());
+        Glide.with(context).load(table.getPoster()).into(holder.poster);
+
+        holder.wishlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "Added to wishlist: " + table.getTittle(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        holder.detail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DetailChair.class);
+
+                Bundle bundle =  new Bundle();
+                bundle.putString("title", table.getTittle());
+                bundle.putString("description", table.getDescription());
+                bundle.putString("category", table.getCategory());
+                bundle.putString("price", table.getPrice());
+                bundle.putString("score", table.getScore());
+                bundle.putString("review", table.getReview());
+                bundle.putString("poster", table.getPoster());
+
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
     }
+
     @Override
     public int getItemCount() {
-        return result != null ? result.size() : 0;
+        return tableList.size();
     }
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView titleTxt, feeTxt, scoreTxt, categoriTxt;
+
+    public class TableHolder extends RecyclerView.ViewHolder{
         ImageView poster;
-        public ViewHolder(@NonNull View itemView) {
+        TextView tittle, category, price;
+        Button wishlist, detail;
+        ConstraintLayout constraintLayout;
+        public TableHolder(@NonNull View itemView) {
             super(itemView);
-            titleTxt = itemView.findViewById(R.id.titleTxt);
-            feeTxt = itemView.findViewById(R.id.feeTxt);
-            scoreTxt = itemView.findViewById(R.id.scoreTxt);
-            categoriTxt = itemView.findViewById(R.id.categoriTxt);
-            poster = itemView.findViewById(R.id.pic);
-        }
-        public void bind(ProductDomain productDomain) {
-            titleTxt.setText(productDomain.getTitle());
-            feeTxt.setText(productDomain.getPrice());
-            scoreTxt.setText(productDomain.getScore());
-            categoriTxt.setText(productDomain.getCategory());
-            Glide.with(activity).load(productDomain.getPoster()).into(poster);
+
+            poster = itemView.findViewById(R.id.posterView);
+            tittle = itemView.findViewById(R.id.tv_name);
+            category = itemView.findViewById(R.id.tv_category);
+            price = itemView.findViewById(R.id.tv_price);
+            wishlist = itemView.findViewById(R.id.btn_wishlist);
+            detail = itemView.findViewById(R.id.btn_detail);
         }
     }
 }

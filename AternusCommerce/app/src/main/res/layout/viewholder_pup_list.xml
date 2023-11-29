@@ -13,7 +13,6 @@
         android:layout_width="155dp"
         android:layout_height="155dp"
         android:layout_margin="8dp"
-        android:background="@color/secondary"
         android:src="@drawable/item_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

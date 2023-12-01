@@ -67,8 +67,7 @@
             android:layout_height="wrap_content"
             android:text="Don’t have an account? Register"
             android:textColor="@android:color/darker_gray"
-            android:paddingTop="16dp"
-            android:background="@drawable/textview_selector" />
+            android:paddingTop="16dp"/>
 
     </LinearLayout>
     <!-- Debug TextView -->

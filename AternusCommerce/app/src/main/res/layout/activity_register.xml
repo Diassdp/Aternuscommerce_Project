@@ -11,19 +11,15 @@
     tools:context="com.aplikasi.aternuscommerce.Activity.Feature.Register">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="550dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/rounded_rectangle"
         android:elevation="4dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="20dp">
 
-        <ImageView
-            android:id="@+id/logoImageView"
-            android:layout_width="223dp"
-            android:layout_height="84dp"
-            android:layout_marginBottom="16dp"
-            android:src="@drawable/logo2" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -35,6 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/secondary"
+                android:textSize="14sp"
                 android:hint="Fullname" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -47,6 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/secondary"
+                android:textSize="14sp"
                 android:hint="Username" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -59,6 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/secondary"
+                android:textSize="14sp"
                 android:hint="Alamat Email" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,6 +71,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/secondary"
                 android:hint="Kata Sandi"
+                android:textSize="14sp"
                 android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -88,6 +88,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/secondary"
                 android:hint="Konfirmasi Kata Sandi"
+                android:textSize="14sp"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
         <Button

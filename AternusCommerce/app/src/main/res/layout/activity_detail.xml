@@ -14,13 +14,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/border" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/tv_score"
-        android:layout_width="35dp"
-        android:layout_height="wrap_content"
+        android:layout_width="22dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:lineSpacingMultiplier="1"
         android:text="1"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,10 +32,11 @@
         android:id="@+id/tv_star"
         android:layout_width="20dp"
         android:layout_height="20dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/star"
-        app:tint="@color/primary"
         app:layout_constraintStart_toEndOf="@+id/tv_score"
-        app:layout_constraintTop_toBottomOf="@+id/posterView" />
+        app:layout_constraintTop_toBottomOf="@+id/posterView"
+        app:tint="@color/primary" />
 
     <TextView
         android:id="@+id/tv_category"
@@ -43,6 +45,8 @@
         android:layout_marginBottom="2dp"
         android:lineSpacingMultiplier="1"
         android:text="Category"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.035"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +61,10 @@
         android:textColor="@color/primary"
         android:text="Rp 50.000"
         android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="2dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_category" />
@@ -69,6 +77,8 @@
         android:text="Title"
         android:textColor="@color/black"
         android:textSize="20sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_score" />
 
@@ -80,6 +90,8 @@
         android:lineSpacingMultiplier="1"
         android:text="DESC"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintHorizontal_bias="0.035"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_price" />
@@ -88,8 +100,9 @@
         android:id="@+id/tv_iconreview"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginStart="320dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="332dp"
+
+        android:layout_marginTop="8dp"
         android:src="@drawable/review_1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_description" />
@@ -97,10 +110,10 @@
     <TextView
         android:id="@+id/tv_review"
         style="@style/TextContent"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
+        android:layout_width="32dp"
+        android:layout_height="19dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="8dp"
         android:lineSpacingMultiplier="1"
         android:text="review"
         app:layout_constraintStart_toEndOf="@+id/tv_iconreview"
@@ -114,6 +127,9 @@
         android:layout_weight="1"
         android:text="Add To Cart"
         android:textSize="12sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_gravity="bottom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_review" />
 

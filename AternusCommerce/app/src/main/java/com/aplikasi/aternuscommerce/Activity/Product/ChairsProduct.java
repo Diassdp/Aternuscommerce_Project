@@ -64,14 +64,11 @@ public class ChairsProduct extends AppCompatActivity {
                         String review = jsonObject.getString("review");
                         String score = jsonObject.getString("score");
                         String poster = jsonObject.getString("poster");
-
                         Chair chair = new Chair(title, description, category, price,review,score,poster);
                         chairList.add(chair);
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
                     ChairsAdapter adapter = new ChairsAdapter(ChairsProduct.this , chairList);
 
                     recyclerView.setAdapter(adapter);

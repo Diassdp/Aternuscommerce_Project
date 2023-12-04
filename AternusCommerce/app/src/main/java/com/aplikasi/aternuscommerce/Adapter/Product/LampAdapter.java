@@ -58,8 +58,8 @@ public class LampAdapter extends RecyclerView.Adapter<LampAdapter.LampHolder>{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailChair.class);
-
                 Bundle bundle =  new Bundle();
+
                 bundle.putString("title", lamp.getTittle());
                 bundle.putString("description", lamp.getDescription());
                 bundle.putString("category", lamp.getCategory());

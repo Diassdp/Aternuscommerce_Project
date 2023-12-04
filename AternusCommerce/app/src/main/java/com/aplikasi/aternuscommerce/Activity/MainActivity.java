@@ -56,9 +56,11 @@ public class MainActivity extends AppCompatActivity {
         Wishlist = findViewById(R.id.WishlistBtn);// ON PROGRESS
         Cart = findViewById(R.id.CartBtn);// ON PROGRESS
 
-        User_ID = getSharedPreferences("userSession", MODE_PRIVATE);
+        User_ID = getSharedPreferences("userSession", MODE_PRIVATE);//User Check
         boolean login_status = User_ID.contains("user_id");
-        if (getSupportActionBar() != null) {
+
+        if (getSupportActionBar() != null) //Top Nav
+        {
             getSupportActionBar().hide();
         }
 
@@ -72,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         initRecyclerView();
-
         Profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     Intent intent = new Intent(MainActivity.this, com.aplikasi.aternuscommerce.Activity.Feature.Profile.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         });
@@ -98,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {v.setScaleX(1.0f);v.setScaleY(1.0f);}
                 }).start();
-
                 if(login_status == FALSE){
                     Intent intent = new Intent(MainActivity.this, Login.class);
                     startActivity(intent);
@@ -116,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         Table.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         Lamp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         Shelf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -137,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         Cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         Wishlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,10 +167,8 @@ public class MainActivity extends AppCompatActivity {
         items.add(new PopularDomain("Stand Lamp RGB", "Description 4", "item_4", 23, "Neon Lamp", 35, 4, 500));
         items.add(new PopularDomain("Feican SMD 5050", "Description 5", "item_5", 45, "Neon Lamp", 40, 4.2, 450));
         items.add(new PopularDomain("Atmosphere Lights Beats", "Description 6", "item_6", 40, "Neon Lamp", 55, 4.7, 400));
-
         recyclerViewPopuler = findViewById(R.id.view1);
         recyclerViewPopuler.setLayoutManager(new GridLayoutManager(this, 2));
-
         adapterPopular = new PopularAdapter(items);
         recyclerViewPopuler.setAdapter(adapterPopular);
     }
@@ -174,7 +178,6 @@ public class MainActivity extends AppCompatActivity {
         String url = connection.getUrlSetup() + "populate.php";
         RequestQueue queue = Volley.newRequestQueue(this);
         String userId = User_ID.getString("user_id", "");
-
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -207,6 +210,5 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         queue.add(stringRequest);
-    }
-
+    }   
 }

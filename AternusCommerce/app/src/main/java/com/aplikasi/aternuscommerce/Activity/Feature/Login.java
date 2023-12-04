@@ -66,6 +66,7 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(Login.this, "Username or password cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
@@ -81,7 +82,6 @@ public class Login extends AppCompatActivity {
                                 String userId = jsonResponse.getString("user_id");
                                 SharedPreferences.Editor editor = User_ID.edit();
                                 editor.putString("user_id", userId); editor.apply();
-
                                 Toast.makeText(Login.this, message, Toast.LENGTH_SHORT).show();
 
                                 Intent intent = new Intent(Login.this, MainActivity.class);

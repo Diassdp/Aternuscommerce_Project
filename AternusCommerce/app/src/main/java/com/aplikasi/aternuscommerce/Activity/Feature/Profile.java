@@ -30,7 +30,6 @@ import java.util.Map;
 public class Profile extends AppCompatActivity {
 
     private EditText fullNameEditText, emailEditText, passwordEditText;
-    private TextView debug;
     private SharedPreferences sharedPreferences;
     private Button saveButton, logoutButton;
     @Override
@@ -49,7 +48,6 @@ public class Profile extends AppCompatActivity {
         passwordEditText = findViewById(R.id.passwordEditText);
         saveButton = findViewById(R.id.saveButton);
         logoutButton = findViewById(R.id.logoutButton);
-        debug = findViewById(R.id.debug);
         populateUserData();
 
         saveButton.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +87,6 @@ public class Profile extends AppCompatActivity {
                     } else {
                         String message = jsonResponse.getString("message");
                         Toast.makeText(Profile.this, message, Toast.LENGTH_SHORT).show();
-                        debug.setText(message);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -100,7 +97,6 @@ public class Profile extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(Profile.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-                        debug.setText("Error: " + error.getMessage());
                     }
                 }) {
             @Override
@@ -125,7 +121,6 @@ public class Profile extends AppCompatActivity {
 
         // Retrieve user_id from SharedPreferences
         String userId = sharedPreferences.getString("user_id", "");
-
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -134,14 +129,12 @@ public class Profile extends AppCompatActivity {
                     JSONObject jsonResponse = new JSONObject(response);
                     boolean success = jsonResponse.getBoolean("success");
                     String message = jsonResponse.getString("message");
-
                     if (success) {
                         // Handle successful update, e.g., show a success message
                         Toast.makeText(Profile.this, message, Toast.LENGTH_SHORT).show();
                     } else {
                         // Handle update failure, e.g., show an error message
                         Toast.makeText(Profile.this, message, Toast.LENGTH_SHORT).show();
-                        debug.setText(message);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -151,7 +144,6 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(Profile.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-                debug.setText("Error: " + error.getMessage());
             }
         }) {
             @Override
@@ -167,7 +159,6 @@ public class Profile extends AppCompatActivity {
         };
         queue.add(stringRequest);
     }
-
     private void logout() {//Logout Function
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.remove("user_id");
